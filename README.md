@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Tip calculator screenshot](./images/screenshot.jpg)
+![Tip calculator screenshot](./images/screenshot.png)
 
 
 ### Links
