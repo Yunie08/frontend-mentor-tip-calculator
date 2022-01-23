@@ -210,6 +210,8 @@ input[type=number]:hover.incorrect,
   position: relative;
   border-radius: var(--elements-radius);
   overflow: hidden;
+  outline: var(--color-white) 2px solid;
+  outline-offset: 0px;
 }
 
 input[type="radio"] , .inputs__tip__container label{
@@ -218,7 +220,7 @@ input[type="radio"] , .inputs__tip__container label{
   top:0;
   left:0;
   right:0;
-  bottom:0;  
+  bottom:0;
 }
 
 input[type=radio] {
@@ -226,6 +228,7 @@ input[type=radio] {
 }
 
 .inputs__tip__container label {
+  /* background: var(--color-neutral-very-dark); */
   background: var(--color-neutral-very-dark);
   color: var(--color-white);
   overflow: hidden;
@@ -269,6 +272,10 @@ input[type="radio"]:checked + label::after,
 input[type="radio"]:hover + label::before {
   opacity: 1;
   transition: opacity ease 150ms;
+}
+
+label.tip-custom-label {
+  background: var(--color-highlight);
 }
 
 input[type=number].tip-custom {
