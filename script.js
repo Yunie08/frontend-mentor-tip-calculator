@@ -31,6 +31,14 @@ document.querySelectorAll("input[name='tip']").forEach(element => {
    });
 })
 
+function inputsEmpty() {
+  if ((billInput.value == undefined || (billInput.value == "")) && (document.querySelector('input[name="tip"]:checked') == undefined) && ((peopleInput.value == undefined) || (peopleInput.value == ""))) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 /********** Managing input errors **********/
 // Check each input
 function checkInputs() {
@@ -103,8 +111,14 @@ document
 
       e.stopPropagation;
 
-      if (resetButton.getAttribute('disabled')) {
+      if (resetButton.getAttribute('disabled') != null) {
         resetButton.removeAttribute('disabled');
+      }
+
+      let inputIsEmpty = inputsEmpty();
+      if ((inputIsEmpty == true)) {
+        console.log('input empty');
+        resetButton.setAttribute('disabled',"");
       }
 
       let inputIsValid = checkInputs();
@@ -130,18 +144,20 @@ document
     element.addEventListener('click', function(e){
 
     e.stopPropagation;
+    
+
     let inputIsValid = checkInputs();
 
     if (inputIsValid == true) {
-    let billValue = billInput.value;
-    let tipValue = document.querySelector('input[name="tip"]:checked').value;
-    let numberOfPeople = peopleInput.value;
+      let billValue = billInput.value;
+      let tipValue = document.querySelector('input[name="tip"]:checked').value;
+      let numberOfPeople = peopleInput.value;
 
-    let resultTip = calculateTip(billValue, tipValue, numberOfPeople);
-    let resultTotal = calculateTotal(billValue, tipValue, numberOfPeople);
+      let resultTip = calculateTip(billValue, tipValue, numberOfPeople);
+      let resultTotal = calculateTotal(billValue, tipValue, numberOfPeople);
 
-    resultTipElt.innerText = `${resultTip}`;
-    resultTotalElt.innerText = `${resultTotal}`;
+      resultTipElt.innerText = `${resultTip}`;
+      resultTotalElt.innerText = `${resultTotal}`;
     }
   })
 });
@@ -159,6 +175,7 @@ resetButton.addEventListener('click', function(e) {
     if (customTipElt.classList.contains('inputCheck')) {
       customTipElt.classList.remove('inputCheck'); // remove style from custom input
     }
-    clearError(peopleInput)
+    clearError(peopleInput);
+    resetButton.setAttribute('disabled',"");
   }
 })

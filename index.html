@@ -16,13 +16,19 @@
   <h1>Spli<br>tter</h1>
   
   <main>
+
+    <!-- Inputs -->
     <form class="inputs">
+
+      <!-- Inputs - Bill -->
       <div class="inputs__bill">
         <label for="bill">Bill</label>
         <div class="inputs__wrapper">
           <input type="number" name="bill" class="inputs__bill__input" id="bill" placeholder="0" min="0" step="0.1" required>
         </div>
       </div>
+
+      <!-- Inputs - Tip -->
       <fieldset class="inputs__tip">
         <legend>Select Tip %</legend>
         <ul class="inputs__tip__container">
@@ -53,6 +59,8 @@
             </label>
           </li>
         </ul>
+
+      <!-- Inputs - Number of people -->
       </fieldset>
       <div class="inputs__people">
         <div class="input__people__header">
@@ -65,8 +73,12 @@
       </div>
     </form>
 
+
+    <!-- Results -->
     <div class="results">
       <div class="results__display">
+
+        <!-- Results - Tip amount -->
         <div class="results__display__unit">
           <div class="results__display__title">
             <p class="results__display__title__main">Tip Amount</p>
@@ -74,6 +86,8 @@
           </div>
           <div class="results__display__result" id="result-tip">$0.00</div>
         </div>
+
+        <!-- Results - Total amount -->
         <div class="results__display__unit">
           <div class="results__display__title">
             <p class="results__display__title__main">Total</p>
@@ -82,7 +96,9 @@
           <div class="results__display__result" id="result-total">$0.00</div>
         </div>
       </div>
-      <button class="results__reset" disabled="true">Reset</button>
+
+      <!-- Reset button -->
+      <button class="results__reset" disabled="">Reset</button>
     </div>
 
   </main>
