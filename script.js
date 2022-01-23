@@ -67,8 +67,11 @@ peopleInput
   .addEventListener('input', function(e){
     e.stopPropagation;
     clearError(peopleInput);
+    if (peopleInput.value <= 0) {
+      peopleErrorMessage.innerText = "Can't be zero"
+      peopleInput.classList.add('incorrect');
+    }
 })
-
 
 // Round input value to  2 digits 
 function roundedValue(value) {
@@ -78,13 +81,15 @@ function roundedValue(value) {
 // Calculate tip per person
 function calculateTip(bill, percentage, people){
   let tip = (bill * percentage / 100) / people;
-  return roundedValue(tip) ;
+  // return roundedValue(tip).toLocaleString('en', {style:'currency', useGrouping) ;
+  return tip.toLocaleString('en', {style:'currency',currency:'USD', useGrouping:'true', minimumFractionDigits:'0'}) ;
 }
 
 // Calculate total amount to pay per person 
 function calculateTotal(bill, percentage, people) {
   let total = bill * (1 + percentage / 100) / people;
-  return roundedValue(total);
+  // return roundedValue(total);
+  return total.toLocaleString('en', {style:'currency',currency:'USD', useGrouping:'true', minimumFractionDigits:'0'}) ;
 }
 
 let resultTipElt = document.getElementById('result-tip');
@@ -97,18 +102,63 @@ document
     element.addEventListener('input', function(e){
 
       e.stopPropagation;
+
+      if (resetButton.getAttribute('disabled')) {
+        resetButton.removeAttribute('disabled');
+      }
+
       let inputIsValid = checkInputs();
 
       if (inputIsValid == true) {
-      let billValue = billInput.value;
-      let tipValue = document.querySelector('input[name="tip"]:checked').value;
-      let numberOfPeople = peopleInput.value;
 
-      let resultTip = calculateTip(billValue, tipValue, numberOfPeople);
-      let resultTotal = calculateTotal(billValue, tipValue, numberOfPeople);
+        let billValue = billInput.value;
+        let tipValue = document.querySelector('input[name="tip"]:checked').value;
+        let numberOfPeople = peopleInput.value;
 
-      resultTipElt.innerText = `$${resultTip}`;
-      resultTotalElt.innerText = `$${resultTotal}`;
+        let resultTip = calculateTip(billValue, tipValue, numberOfPeople);
+        let resultTotal = calculateTotal(billValue, tipValue, numberOfPeople);
+
+        resultTipElt.innerText = `${resultTip}`;
+        resultTotalElt.innerText = `${resultTotal}`;
       }
     })
-  });
+});
+
+document
+  .querySelectorAll("input")
+  .forEach(element => {
+    element.addEventListener('click', function(e){
+
+    e.stopPropagation;
+    let inputIsValid = checkInputs();
+
+    if (inputIsValid == true) {
+    let billValue = billInput.value;
+    let tipValue = document.querySelector('input[name="tip"]:checked').value;
+    let numberOfPeople = peopleInput.value;
+
+    let resultTip = calculateTip(billValue, tipValue, numberOfPeople);
+    let resultTotal = calculateTotal(billValue, tipValue, numberOfPeople);
+
+    resultTipElt.innerText = `${resultTip}`;
+    resultTotalElt.innerText = `${resultTotal}`;
+    }
+  })
+});
+
+// Inputs and results reset
+let resetButton = document.querySelector("button.results__reset");
+let inputsForm = document.querySelector("form.inputs");
+
+resetButton.addEventListener('click', function(e) {
+  e.stopPropagation;
+  if (!resetButton.getAttribute("disabled")) {
+    inputsForm.reset();
+    resultTipElt.innerText = "$0.00";
+    resultTotalElt.innerText = "$0.00";
+    if (customTipElt.classList.contains('inputCheck')) {
+      customTipElt.classList.remove('inputCheck'); // remove style from custom input
+    }
+    clearError(peopleInput)
+  }
+})
