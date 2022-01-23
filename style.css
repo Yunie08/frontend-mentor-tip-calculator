@@ -393,7 +393,7 @@ input[type=number].inputCheck {
 
 .results__reset::before {
   z-index: -2;
-  background: hsl(183°, 79%, 24%);
+  background: hsl(183, 79%, 24%);
 }
 
 .results__reset:hover::after{
@@ -403,7 +403,6 @@ input[type=number].inputCheck {
 
 .results__reset:disabled {
   background: hsl(183, 79%, 24%);
-  color: hsl()
 }
 
 /********** Media queries **********/
