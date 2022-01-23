@@ -110,6 +110,19 @@ main {
   color: hsl(228, 45%, 44%);
 }
 
+/********** Screen readers only **********/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
 /********** Inputs **********/
 
 .inputs__bill,
@@ -268,6 +281,11 @@ input[type="radio"]:hover + label {
   color: var(--color-neutral-very-dark);
 }
 
+input[type="radio"]:checked + label,
+input[type="radio"]:hover + label {
+  background: transparent;
+}
+
 input[type="radio"]:checked + label::after,
 input[type="radio"]:hover + label::before {
   opacity: 1;
@@ -276,6 +294,7 @@ input[type="radio"]:hover + label::before {
 
 label.tip-custom-label {
   background: var(--color-highlight);
+  color: black;
 }
 
 input[type=number].tip-custom {
