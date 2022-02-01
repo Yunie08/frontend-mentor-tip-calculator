@@ -12,15 +12,15 @@
   --color-error: #e17457;
   --input-font-size: 2.4rem;
   --elements-height: 4.8rem;
-  --elements-radius: 0.5rem; 
+  --elements-radius: 0.5rem;
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
@@ -32,7 +32,7 @@ body {
   min-height: 100vh;
   height: 100%;
   width: 100%;
-  font-family: 'Space Mono', monospace, Arial;
+  font-family: "Space Mono", monospace, Arial;
   font-size: 1.6rem;
   font-weight: 700;
   background-color: var(--color-neutral-light-1);
@@ -51,8 +51,8 @@ ul {
 button,
 input,
 fieldset {
-    font-family: inherit;
-    border: none;
+  font-family: inherit;
+  border: none;
 }
 
 label,
@@ -66,7 +66,7 @@ h1 {
   letter-spacing: 0.5em;
   font-size: 2.4rem;
   color: hsl(180, 25%, 32%);
-  padding-left:  0.5em;
+  padding-left: 0.5em;
 }
 
 main {
@@ -75,7 +75,7 @@ main {
   width: 95%;
   background-color: var(--color-white);
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 4.8rem;
   padding: 3.2rem;
   border-radius: 2.5rem;
@@ -98,15 +98,15 @@ main {
 
 .attribution {
   position: absolute;
-  bottom : 2.5rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 11px; 
+  font-size: 11px;
   text-align: center;
   z-index: -1;
 }
 
-.attribution a { 
+.attribution a {
   color: hsl(228, 45%, 44%);
 }
 
@@ -139,30 +139,30 @@ input {
 }
 
 /********** Number Inputs **********/
-input[type=number] {
+input[type="number"] {
   background-color: var(--color-neutral-light-2);
   height: var(--elements-height);
   text-align: end;
   padding-right: 1.7rem;
-  color : var(--color-neutral-very-dark);
+  color: var(--color-neutral-very-dark);
   caret-color: var(--color-primary);
   width: 100%;
 }
 
-input[type=number]:focus::placeholder {
+input[type="number"]:focus::placeholder {
   color: transparent;
 }
 
-input[type=number]::placeholder {
+input[type="number"]::placeholder {
   color: hsl(184, 19%, 68%);
 }
 
-input[type=number]:focus,
-input[type=number]:hover {
+input[type="number"]:focus,
+input[type="number"]:hover {
   outline: var(--color-primary) 2px solid;
 }
 
-input[type=number]:focus {
+input[type="number"]:focus {
   cursor: text;
 }
 
@@ -175,13 +175,13 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
 .incorrect,
-input[type=number]:focus.incorrect,
-input[type=number]:hover.incorrect,
+input[type="number"]:focus.incorrect,
+input[type="number"]:hover.incorrect,
 .incorrect:focus {
   outline: var(--color-error) 2px solid;
 }
@@ -227,16 +227,17 @@ input[type=number]:hover.incorrect,
   outline-offset: 0px;
 }
 
-input[type="radio"] , .inputs__tip__container label{
+input[type="radio"],
+.inputs__tip__container label {
   display: block;
   position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-input[type=radio] {
+input[type="radio"] {
   opacity: 0;
 }
 
@@ -249,7 +250,8 @@ input[type=radio] {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: inherit;font-size: var(--input-font-size);
+  font-size: inherit;
+  font-size: var(--input-font-size);
   cursor: pointer;
   height: 100%;
 }
@@ -258,15 +260,15 @@ input[type=radio] {
 .inputs__tip__container label::before {
   content: "";
   position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   opacity: 0;
   overflow: hidden;
 }
 
-.inputs__tip__container label::after{
+.inputs__tip__container label::after {
   background: var(--color-primary);
   z-index: -1;
 }
@@ -297,7 +299,7 @@ label.tip-custom-label {
   color: black;
 }
 
-input[type=number].tip-custom {
+input[type="number"].tip-custom {
   width: 100%;
   height: 100%;
   border: var(--color-neutral-light-2) solid 2px;
@@ -305,17 +307,17 @@ input[type=number].tip-custom {
   padding-right: 0;
 }
 
-input[type=number].tip-custom::placeholder {
+input[type="number"].tip-custom::placeholder {
   color: hsl(180, 18%, 40%);
 }
 
-input[type=number].tip-custom:focus::placeholder {
+input[type="number"].tip-custom:focus::placeholder {
   color: transparent;
 }
 
-input[type=number].tip-custom:hover,
-input[type=number].tip-custom:focus,
-input[type=number].inputCheck {
+input[type="number"].tip-custom:hover,
+input[type="number"].tip-custom:focus,
+input[type="number"].inputCheck {
   border-color: var(--color-primary);
 }
 
@@ -325,7 +327,7 @@ input[type=number].inputCheck {
 }
 
 #peopleErrorMessage {
-  color: var(--color-error)
+  color: var(--color-error);
 }
 
 /********** Results **********/
@@ -370,12 +372,12 @@ input[type=number].inputCheck {
   width: 5px;
 }
 
-.results__display__result::-webkit-scrollbar-track  {
+.results__display__result::-webkit-scrollbar-track {
   background: rgba(79, 166, 175, 0.1);
   border-radius: 10px;
 }
 
-.results__display__result::-webkit-scrollbar-thumb  {
+.results__display__result::-webkit-scrollbar-thumb {
   background: hsla(172, 67%, 45%, 0.4);
   border-radius: 10px;
 }
@@ -415,7 +417,7 @@ input[type=number].inputCheck {
   background: hsl(183, 79%, 24%);
 }
 
-.results__reset:hover::after{
+.results__reset:hover::after {
   opacity: 1;
   transition: opacity ease 150ms;
 }
@@ -426,13 +428,13 @@ input[type=number].inputCheck {
 
 /********** Media queries **********/
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
   html {
     font-size: 9px;
   }
 }
 
-@media screen and (max-width:880px) {
+@media screen and (max-width: 880px) {
   html {
     font-size: 62.5%;
   }

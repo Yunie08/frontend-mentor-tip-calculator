@@ -1,114 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css">
-  <title>Frontend Mentor | Tip calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <header>
+      <h1>Spli<br />tter</h1>
+    </header>
 
-
-</head>
-<body>
-  <h1>Spli<br>tter</h1>
-  
-  <main>
-
-    <!-- Inputs -->
-    <form class="inputs">
-
-      <!-- Inputs - Bill -->
-      <div class="inputs__bill">
-        <label for="bill">Bill</label>
-        <div class="inputs__wrapper">
-          <input type="number" name="bill" class="inputs__bill__input" id="bill" placeholder="0" min="0" step="0.1" required>
-        </div>
-      </div>
-
-      <!-- Inputs - Tip -->
-      <fieldset class="inputs__tip">
-        <legend>Select Tip %</legend>
-        <ul class="inputs__tip__container">
-          <li>
-            <input type="radio" name="tip" id="tip-5" value="5">
-            <label for="tip-5">5%</label>
-          </li>
-          <li>
-            <input type="radio" name="tip" id="tip-10" value="10">
-            <label for="tip-10">10%</label>
-          </li>
-          <li>
-            <input type="radio" name="tip" id="tip-15" value="15">
-            <label for="tip-15">15%</label>
-          </li>
-          <li>
-            <input type="radio" name="tip" id="tip-25" value="25">
-            <label for="tip-25">25%</label>
-          </li>
-          <li>
-            <input type="radio" name="tip" id="tip-50" value="50">
-            <label for="tip-50">50%</label>
-          </li>
-          <li>
-            <label class="sr-only" for="tip-custom-radio">Custom Tip</label>
-            <input type="radio" name="tip" id="tip-custom-radio" value="custom">
-            <label class="tip-custom-label sr-only" id="tip-custom-label" for="tip-custom-input">Custom tip input</label>
-            <input type="number" name="tip-custom" class="tip-custom" id="tip-custom-input" min="0" step="1" placeholder="Custom">
-            
-          </li>
-        </ul>
-
-      <!-- Inputs - Number of people -->
-      </fieldset>
-      <div class="inputs__people">
-        <div class="input__people__header">
-          <label for="people">Number of People</label>
-          <p id="peopleErrorMessage"></p>
-        </div>
-        <div class="inputs__wrapper">
-          <input type="number"  name="people" id="people" placeholder="0" min="1" step="1" required>
-        </div>
-      </div>
-    </form>
-
-
-    <!-- Results -->
-    <div class="results">
-      <div class="results__display">
-
-        <!-- Results - Tip amount -->
-        <div class="results__display__unit">
-          <div class="results__display__title">
-            <p class="results__display__title__main">Tip Amount</p>
-            <p class="results__display__title__sub">/ person</p>
+    <main>
+      <!-- Inputs -->
+      <form class="inputs">
+        <!-- Inputs - Bill -->
+        <div class="inputs__bill">
+          <label for="bill">Bill</label>
+          <div class="inputs__wrapper">
+            <input
+              type="number"
+              name="bill"
+              class="inputs__bill__input"
+              id="bill"
+              placeholder="0"
+              min="0"
+              step="0.1"
+              required
+            />
           </div>
-          <div class="results__display__result" id="result-tip">$0.00</div>
         </div>
 
-        <!-- Results - Total amount -->
-        <div class="results__display__unit">
-          <div class="results__display__title">
-            <p class="results__display__title__main">Total</p>
-            <p class="results__display__title__sub">/ person</p>
+        <!-- Inputs - Tip -->
+        <fieldset class="inputs__tip">
+          <legend>Select Tip %</legend>
+          <ul class="inputs__tip__container">
+            <li>
+              <input type="radio" name="tip" id="tip-5" value="5" />
+              <label for="tip-5">5%</label>
+            </li>
+            <li>
+              <input type="radio" name="tip" id="tip-10" value="10" />
+              <label for="tip-10">10%</label>
+            </li>
+            <li>
+              <input type="radio" name="tip" id="tip-15" value="15" />
+              <label for="tip-15">15%</label>
+            </li>
+            <li>
+              <input type="radio" name="tip" id="tip-25" value="25" />
+              <label for="tip-25">25%</label>
+            </li>
+            <li>
+              <input type="radio" name="tip" id="tip-50" value="50" />
+              <label for="tip-50">50%</label>
+            </li>
+            <li>
+              <label class="sr-only" for="tip-custom-radio">Custom Tip</label>
+              <input
+                type="radio"
+                name="tip"
+                id="tip-custom-radio"
+                value="custom"
+              />
+              <label
+                class="tip-custom-label sr-only"
+                id="tip-custom-label"
+                for="tip-custom-input"
+                >Custom tip input</label
+              >
+              <input
+                type="number"
+                name="tip-custom"
+                class="tip-custom"
+                id="tip-custom-input"
+                min="0"
+                step="1"
+                placeholder="Custom"
+              />
+            </li>
+          </ul>
+
+          <!-- Inputs - Number of people -->
+        </fieldset>
+        <div class="inputs__people">
+          <div class="input__people__header">
+            <label for="people">Number of People</label>
+            <p id="peopleErrorMessage"></p>
           </div>
-          <div class="results__display__result" id="result-total">$0.00</div>
+          <div class="inputs__wrapper">
+            <input
+              type="number"
+              name="people"
+              id="people"
+              placeholder="0"
+              min="1"
+              step="1"
+              required
+            />
+          </div>
         </div>
+      </form>
+
+      <!-- Results -->
+      <div class="results">
+        <div class="results__display">
+          <!-- Results - Tip amount -->
+          <div class="results__display__unit">
+            <div class="results__display__title">
+              <p class="results__display__title__main">Tip Amount</p>
+              <p class="results__display__title__sub">/ person</p>
+            </div>
+            <div class="results__display__result" id="result-tip">$0.00</div>
+          </div>
+
+          <!-- Results - Total amount -->
+          <div class="results__display__unit">
+            <div class="results__display__title">
+              <p class="results__display__title__main">Total</p>
+              <p class="results__display__title__sub">/ person</p>
+            </div>
+            <div class="results__display__result" id="result-total">$0.00</div>
+          </div>
+        </div>
+
+        <!-- Reset button -->
+        <button class="results__reset" disabled="">Reset</button>
       </div>
 
-      <!-- Reset button -->
-      <button class="results__reset" disabled="">Reset</button>
-    </div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Yunie08</a>.
+      </div>
+    </main>
 
-  </main>
-   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Yunie08</a>.
-  </div>
-
-  <script src="./script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
