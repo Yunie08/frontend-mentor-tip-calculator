@@ -424,6 +424,10 @@ input[type="number"].inputCheck {
   transition: opacity ease 150ms;
 }
 
+.results__reset:disabled:hover::after {
+  opacity: 0;
+}
+
 .results__reset:disabled {
   background: hsl(183, 79%, 24%);
 }
